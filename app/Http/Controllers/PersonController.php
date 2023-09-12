@@ -10,26 +10,13 @@ class PersonController extends Controller
     public function store(Request $request)
     {
         // Validate input data
-       try {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-
-
-        ]);
-
         // Create a new person
         $person = new Person();
-        $person->name = $validatedData['name'];
-
+        $person->name = $request->input('name'); // Assuming 'name' is present in the request data
 
         $person->save();
 
         return response()->json($person, 201);
-
-       } catch (\Throwable $th) {
-        return response()->json($th->getMessage());
-       }
-       // return response()->json(['message' => 'Person created successfully'], 201);
     }
 
     public function show($id)
@@ -47,10 +34,10 @@ class PersonController extends Controller
     public function update(Request $request, $id)
     {
         // Validate input data
-        $validatedData = $request->validate([
-            'name' => 'string|max:255',
+        // $validatedData = $request->validate([
+        //     'name' => 'string|max:255',
 
-        ]);
+        // ]);
 
         // Find the person by ID
         $person = Person::find($id);
@@ -60,33 +47,31 @@ class PersonController extends Controller
         }
 
         // Update person attributes
-        if (isset($validatedData['name'])) {
-            $person->name = $validatedData['name'];
-        }
+        // if (isset($validatedData['name'])) {
+        //     $person->name = $validatedData['name'];
+        // }
 
 
         $person->save();
 
         return $person;
 
-       // return response()->json(['message' => 'Person updated successfully']);
+        // return response()->json(['message' => 'Person updated successfully']);
     }
 
     public function destroy($id)
     {
-       // Find the person by ID
-    $person = Person::find($id);
+        // Find the person by ID
+        $person = Person::find($id);
 
-    if (!$person) {
-        return response()->json(['message' => 'Person not found'], 404);
-    }
+        if (!$person) {
+            return response()->json(['message' => 'Person not found'], 404);
+        }
 
-    $personName = $person->name; // Get the name before deleting
+        $personName = $person->name; // Get the name before deleting
 
-    $person->delete();
+        $person->delete();
 
-    return response()->json(['message' => $personName . ' deleted successfully']);
-
-
+        return response()->json(['message' => $personName . ' deleted successfully']);
     }
 }
