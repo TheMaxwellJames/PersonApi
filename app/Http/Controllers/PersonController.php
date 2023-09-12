@@ -10,6 +10,7 @@ class PersonController extends Controller
     public function store(Request $request)
     {
         // Validate input data
+       try {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
 
@@ -25,6 +26,9 @@ class PersonController extends Controller
 
         return response()->json($person, 201);
 
+       } catch (\Throwable $th) {
+        return response()->json($th->getMessage());
+       }
        // return response()->json(['message' => 'Person created successfully'], 201);
     }
 
