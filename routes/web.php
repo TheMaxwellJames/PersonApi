@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::post('/', [PersonController::class, 'store']); // CREATE
+
+Route::get('/{id}', [PersonController::class, 'show']); // READ
+
+Route::put('/{id}', [PersonController::class, 'update']); // UPDATE
+
+Route::delete('/{id}', [PersonController::class, 'destroy']); // DELETE
