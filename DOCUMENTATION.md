@@ -18,7 +18,7 @@ This document provides detailed information on how to use the API for managing p
 **Request:**
 
 - **Method:** POST
-- **Endpoint:** `/api/persons`
+- **Endpoint:** `/api/`
 - **Headers:** None (for simplicity; in practice, consider using authentication headers)
 - **Request Body:**
 
@@ -53,7 +53,7 @@ Response Body:
 Request:
 
 Method: GET
-Endpoint: /api/persons/{id}
+Endpoint: /api/{id}
 Headers: None (for simplicity; in practice, consider using authentication headers)
 Response:
 
@@ -73,7 +73,7 @@ Update Details of an Existing Person
 Request:
 
 Method: PUT
-Endpoint: /api/persons/{id}
+Endpoint: /api/{id}
 Headers: None (for simplicity; in practice, consider using authentication headers)
 Request Body:
 
@@ -103,7 +103,7 @@ Delete a Person
 Request:
 
 Method: DELETE
-Endpoint: /api/persons/{id}
+Endpoint: /api/{id}
 Headers: None (for simplicity; in practice, consider using authentication headers)
 Response:
 

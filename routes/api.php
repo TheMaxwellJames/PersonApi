@@ -21,11 +21,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::post('/persons', [PersonController::class, 'store']); // CREATE
+Route::post('/', [PersonController::class, 'store']); // CREATE
 
-Route::get('/persons{id}', [PersonController::class, 'show']); // READ
+Route::get('/{id}', [PersonController::class, 'show']); // READ
 
-Route::put('/persons{id}', [PersonController::class, 'update']); // UPDATE
+Route::put('/{id}', [PersonController::class, 'update']); // UPDATE
 
-Route::delete('/persons{id}', [PersonController::class, 'destroy']); // DELETE
+Route::delete('/{id}', [PersonController::class, 'destroy']); // DELETE
 

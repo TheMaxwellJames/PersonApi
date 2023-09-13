@@ -78,10 +78,10 @@ Your API will be accessible at http://localhost:8000.
 ## API Endpoints
 The following API endpoints are available:
 
-# POST /api/persons: Create a new person.
-# GET /api/persons/{id}: Retrieve details of a person by ID.
-# PUT /api/persons/{id}: Update details of an existing person by ID.
-# DELETE /api/persons/{id}: Delete a person by ID.
+# POST /api/: Create a new person.
+# GET /api/{id}: Retrieve details of a person by ID.
+# PUT /api/{id}: Update details of an existing person by ID.
+# DELETE /api/{id}: Delete a person by ID.
 
 
 For detailed request and response examples, please refer to the API documentation.
