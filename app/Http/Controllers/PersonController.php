@@ -10,6 +10,12 @@ class PersonController extends Controller
     public function store(Request $request)
     {
         // Validate input data
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+
+
+        ]);
+
         // Create a new person
         $person = new Person();
         $person->name = $request->input('name'); // Assuming 'name' is present in the request data
@@ -34,10 +40,10 @@ class PersonController extends Controller
     public function update(Request $request, $id)
     {
         // Validate input data
-        // $validatedData = $request->validate([
-        //     'name' => 'string|max:255',
+        $validatedData = $request->validate([
+            'name' => 'string|max:255',
 
-        // ]);
+        ]);
 
         // Find the person by ID
         $person = Person::find($id);
@@ -47,9 +53,9 @@ class PersonController extends Controller
         }
 
         // Update person attributes
-        // if (isset($validatedData['name'])) {
-        //     $person->name = $validatedData['name'];
-        // }
+        if (isset($validatedData['name'])) {
+            $person->name = $validatedData['name'];
+        }
 
 
         $person->save();
