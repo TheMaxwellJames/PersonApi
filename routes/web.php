@@ -2,6 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\HomeController;
+
+use App\Http\Controllers\Backend\AuthController;
+
+use App\Http\Controllers\Backend\DashboardController;
+
+use App\Http\Controllers\Backend\PortfolioController;
+
+use App\Http\Controllers\Backend\BlogController;
+
+use App\Http\Controllers\Backend\SocialIconController;
+
+use App\Http\Controllers\Backend\MyAccountController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
